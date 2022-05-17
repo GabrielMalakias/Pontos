@@ -7,5 +7,7 @@ defmodule Pontos.Repo.Migrations.CreateUsers do
 
       timestamps()
     end
+
+    create constraint(:users, :points_must_be_in_range, check: "points >= 0 AND points <= 100")
   end
 end

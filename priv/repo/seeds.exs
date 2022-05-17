@@ -9,4 +9,4 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
-Task.async_stream(0..1000000, Pontos.Insert, :call, [%Pontos.User{points: 0}], max_concurrency: 50) |> Stream.run
+Task.async_stream(0..1000000, Pontos.Insert, :call, [], max_concurrency: 50) |> Stream.run

@@ -15,9 +15,12 @@ defmodule Pontos.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Pontos.PubSub},
       # Start the Endpoint (http/https)
-      PontosWeb.Endpoint
+      PontosWeb.Endpoint,
       # Start a worker by calling: Pontos.Worker.start_link(arg)
       # {Pontos.Worker, arg}
+      #
+      # Starts the User Server
+      Pontos.User.Server
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
