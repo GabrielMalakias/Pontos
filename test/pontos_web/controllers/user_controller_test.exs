@@ -7,7 +7,7 @@ defmodule PontosWeb.UserControllerTest do
       Pontos.Repo.insert!(%Pontos.User{points: x})
     end)
 
-    Pontos.User.Server.reset
+    Pontos.User.Server.reset()
 
     :ok
   end
@@ -29,14 +29,12 @@ defmodule PontosWeb.UserControllerTest do
     end
 
     test "updates the points when evaluate is called" do
-      user = Pontos.Repo.one!(from u in Pontos.User, limit: 1)
-
-      assert user.points == 0
+      old_user = Pontos.Repo.one!(from u in Pontos.User, limit: 1)
 
       :timer.sleep(300)
 
-      user = Pontos.Repo.get_by!(Pontos.User, id: user.id)
-      assert user.points != 0
+      user = Pontos.Repo.get_by!(Pontos.User, id: old_user.id)
+      assert user.points != old_user.points
     end
   end
 end

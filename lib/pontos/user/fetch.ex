@@ -10,6 +10,10 @@ defmodule Pontos.User.Fetch do
   end
 
   defp query(points) do
-    from(u in Pontos.User, select: %{id: u.id, points: u.points}, where: u.points > ^points, limit: ^@limit)
+    from(u in Pontos.User,
+      select: %{id: u.id, points: u.points},
+      where: u.points > ^points,
+      limit: ^@limit
+    )
   end
 end

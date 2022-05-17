@@ -20,7 +20,7 @@ config :pontos, PontosWeb.Endpoint,
   secret_key_base: "yx/kndd6IHcZe+BWG5pxIiktYkE21L6lKjAEU4PP+U5mANOlifPgqjuPEkFGbo/D",
   server: false
 
-config :pontos, users_evaluate_interval: 100
+config :pontos, users_evaluate_interval: 200
 
 # In test we don't send emails.
 config :pontos, Pontos.Mailer, adapter: Swoosh.Adapters.Test

@@ -6,17 +6,3 @@ services:
       - POSTGRES_PASSWORD=postgres
     ports:
       - "5432:5432"
-  web:
-    build: .
-    volumes:
-      - type: bind
-        source: .
-        target: /app
-    ports:
-      - "4000:4000"
-    environment:
-      - DB_HOST=db
-    depends_on:
-      - db
-    command:
-      - ./scripts/start.sh

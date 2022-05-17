@@ -14,7 +14,7 @@ defmodule Pontos.User.Server do
 
   @impl true
   def handle_info(:evaluate, state) do
-    Pontos.User.Evaluate.call
+    Pontos.User.Evaluate.call()
 
     schedule_work()
 
@@ -23,7 +23,8 @@ defmodule Pontos.User.Server do
 
   @impl true
   def handle_call(:fetch, _from, %{max_number: max_number, timestamp: timestamp} = state) do
-    {:reply, [timestamp, Pontos.User.Fetch.call(max_number)], Map.merge(state, %{timestamp: now!()})}
+    {:reply, [timestamp, Pontos.User.Fetch.call(max_number)],
+     Map.merge(state, %{timestamp: now!()})}
   end
 
   @impl true
