@@ -26,7 +26,13 @@ defmodule Pontos.User.Server do
     {:reply, [timestamp, Pontos.User.Fetch.call(max_number)], Map.merge(state, %{timestamp: now!()})}
   end
 
+  @impl true
+  def handle_call(:reset, _f, _s) do
+    {:reply, :ok, initial_state()}
+  end
+
   def fetch, do: GenServer.call(__MODULE__, :fetch)
+  def reset, do: GenServer.call(__MODULE__, :reset)
 
   defp now! do
     DateTime.utc_now()
@@ -45,6 +51,6 @@ defmodule Pontos.User.Server do
   end
 
   defp interval do
-    :timer.minutes(1)
+    Application.fetch_env!(:pontos, :users_evaluate_interval)
   end
 end
