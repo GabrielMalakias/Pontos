@@ -8,6 +8,6 @@ defmodule PontosWeb.Router do
   scope "/", PontosWeb do
     pipe_through :api
 
-    get "/", PointController, :index
+    get "/", UserController, :index
   end
 end
