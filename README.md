@@ -65,3 +65,5 @@ lib
 I could not find a way to Sandbox on my GenServer/Integration tests so I just left it in a state where it was working
 
 I was also going to dockerize the app but for some reason it was not working the way I expected so I left it out. Maybe cowboy needs a config I'm missing or something.
+
+After finishing I could have used the generate_series on postgres to generate the seeds faster but I left it as a demo for the Task async
